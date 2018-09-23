@@ -5,8 +5,8 @@ account: natashapps
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 464026
-bundleId: 1600333
+bundleId: 1600342
 url: https://natashapps.shinyapps.io/Project-1/
-when: 1537678976.37727
+when: 1537680139.87471
 asMultiple: FALSE
 asStatic: FALSE

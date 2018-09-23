@@ -57,7 +57,8 @@ sidebar <- dashboardSidebar(
                 min = min(masshooting$Year, na.rm = T),
                 max = max(masshooting$Year, na.rm = T),
                 value = c(min(masshooting$Year, na.rm = T), max(masshooting$Year, na.rm = T)),
-                step = 1)
+                step = 1,
+                round= TRUE)
   )
 )
 #I am going to put the necessary information for the body 
@@ -109,18 +110,24 @@ server <- function(input, output) {
  output$plot_mentalh <- renderPlotly({
    masshooting <- msInput()
    ggplot(data =  masshooting, aes(x = Year, y = Total.victims, fill = Mental.Health.Issues)) + 
-     geom_bar(stat = "identity")
+     geom_bar(stat = "identity") + 
+     labs(title= "Total Victims of Mass Shootings per Year and Mental Health Condition",
+          x= "Year", y= " Total number of Victims", Legend= "Mental Health Condition")
 })
 # A plot showing the number of injured persons per Year
 output$plot_Injured <- renderPlotly({
   masshooting <- msInput()
-  ggplot(data =  masshooting, aes(x = Year, y = Injured)) + geom_bar(stat = "identity")
+  ggplot(data =  masshooting, aes(x = Year, y = Injured)) + geom_bar(stat = "identity") + 
+    labs(title= "Total Number of Injured people of Mass Shootings per Year ",
+          x= "Year", y= " Total number of Injured")
 })
 
 # A plot showing the number of fatalities
 output$plot_Fatalities <- renderPlotly({
   masshooting <- msInput()
-  ggplot(data =  masshooting, aes(x = Year, y = Fatalities)) + geom_bar(stat = "identity")
+  ggplot(data =  masshooting, aes(x = Year, y = Fatalities)) + geom_bar(stat = "identity") + 
+    labs(title= "Total Number of Fatalities of Mass Shootings per Year ",
+         x= "Year", y= " Total number of Fatalities")
 })
 
 # Data table of characters
