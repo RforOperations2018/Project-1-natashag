@@ -1,0 +1,65 @@
+---
+title: "Mass Shootings Flex Dashboard"
+runtime: shiny
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: row
+    vertical_layout: fill
+    theme: sandstone
+    favicon: favicon.ico
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(shiny)
+library(reshape2)
+library(dplyr)
+library(plotly)
+
+pdf(NULL)
+
+#I am going to download the data 
+
+masshootings<-read.csv("MassShootings.csv")
+
+
+#Reactivity of Inputs
+swInput <- reactive({
+  starwars <- starwars.load %>%
+    # Slider Filter
+    filter(birth_year >= input$birthSelect[1] & birth_year <= input$birthSelect[2])
+  # Homeworld Filter
+  if (length(input$worldSelect) > 0 ) {
+    starwars <- subset(starwars, homeworld %in% input$worldSelect)
+  }
+  
+  return(starwars)
+})
+
+
+```
+
+Sidebar {.sidebar}
+=====================================
+
+```{r}
+# I am going to create the inputs
+
+selectInput("worldSelect",
+               "Homeworld:",
+               choices = sort(unique(starwars.load$homeworld)),
+               multiple = TRUE,
+               selectize = TRUE,
+               selected = c("Naboo", "Tatooine"))
+   # Birth Selection
+   sliderInput("birthSelect",
+               "Birth Year:",
+               min = min(starwars.load$birth_year, na.rm = T),
+               max = max(starwars.load$birth_year, na.rm = T),
+               value = c(min(starwars.load$birth_year, na.rm = T), max(starwars.load$birth_year, na.rm = T)),
+               step = 1)
+
+
+
+```
+

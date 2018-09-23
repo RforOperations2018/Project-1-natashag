@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1537536565689.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "50C258CD",
+    "lastKnownWriteTime" : 8225958251560329833,
+    "last_content_update" : 1537536565689,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "651157E1",
+        "caption" : "masshooting",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=masshooting&cache_key=651157E1",
+        "displayedObservations" : 323,
+        "environment" : "",
+        "object" : "masshooting",
+        "preview" : 0,
+        "totalObservations" : 323,
+        "variables" : 21
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
