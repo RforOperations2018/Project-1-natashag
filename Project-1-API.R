@@ -134,7 +134,7 @@ server <- function(input, output) {
     return(masshooting)
   })
   
-  #A plot showing the massshootings per year and mental health condition
+  #A plot showing the massshootings per year and mental health condition 
   output$plot_mentalh <- renderPlotly({
     masshooting <- msInput()
     ggplot(data =  masshooting, aes(x =Year, y = get("Total victims"), fill =get("Mental Health Issues"))) + 
