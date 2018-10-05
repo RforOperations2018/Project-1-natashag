@@ -31,6 +31,7 @@ sidebar <- dashboardSidebar(
     menuItem("Plot General Victims", icon = icon("bar-chart"), tabName = "plot2"),
     menuItem("Table", icon = icon("table"), tabName = "table", badgeLabel = "new", badgeColor = "green"),
    #Gender Slect
+   # You might want an update Input or renderUI so users cannot select things that are not possible
       selectInput("GenderSelect",
                  "Gender of the Shooter:",
                   choices = sort(unique(masshooting$Gender)),
