@@ -137,6 +137,7 @@ server <- function(input, output) {
   #A plot showing the massshootings per year and mental health condition 
   output$plot_mentalh <- renderPlotly({
     masshooting <- msInput()
+    # Would have liked to see some changing of the x-axis labels here, they run into each other. Also a different title for the fill legend For future reference any columns with spaces in their names can be wrapped in `` so that the variable is red as a variable
     ggplot(data =  masshooting, aes(x =Year, y = get("Total victims"), fill =get("Mental Health Issues"))) + 
       geom_bar(stat = "identity") + 
       labs(title= "Total Victims of Mass Shootings per Year and Mental Health Condition",
